@@ -7,7 +7,7 @@ const validInput: WaitlistInput = { preferredDate: '2026-10-28', consentConfirme
 describe('clinic waitlist domain', () => {
   it('accepts today as the preferred-date boundary and creates a local waiting ticket', () => {
     const entry = createWaitlistEntry(validInput, '12345678-aaaa-bbbb-cccc-123456789abc', now);
-    expect(entry.ticketCode).toBe('CW-12345678');
+    expect(entry.ticketCode).toBe('CW-12345678AAAA');
     expect(entry.status).toBe('waiting');
     expect(entry.createdAt).toBe(now.toISOString());
   });
@@ -26,9 +26,11 @@ describe('clinic waitlist domain', () => {
     expect(() => cancelWaitlistEntry(cancelled, now)).toThrow('Only a waiting ticket can be cancelled.');
   });
 
-  it('does not allow cancellation to precede ticket creation', () => {
+  it('still allows cancellation when the device clock moves backward', () => {
     const entry = createWaitlistEntry(validInput, '12345678-aaaa-bbbb-cccc-123456789abc', now);
-    expect(() => cancelWaitlistEntry(entry, new Date('2026-10-28T07:59:59.999Z'))).toThrow('Cancellation time cannot be earlier than ticket creation.');
+    const cancelled = cancelWaitlistEntry(entry, new Date('2026-10-28T07:59:59.999Z'));
+    expect(cancelled.status).toBe('cancelled');
+    expect(cancelled.cancelledAt).toBe('2026-10-28T07:59:59.999Z');
   });
 
   it('survives JSON serialization without patient or contact fields', () => {

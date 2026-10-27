@@ -52,7 +52,7 @@ export function createWaitlistEntry(input: WaitlistInput, id: string, now = new 
   const timestamp = now.toISOString();
   return {
     id,
-    ticketCode: `CW-${id.replaceAll('-', '').slice(0, 8).toUpperCase()}`,
+    ticketCode: `CW-${id.replaceAll('-', '').slice(0, 12).toUpperCase()}`,
     createdAt: timestamp,
     preferredDate: input.preferredDate,
     status: 'waiting',
@@ -63,7 +63,5 @@ export function createWaitlistEntry(input: WaitlistInput, id: string, now = new 
 
 export function cancelWaitlistEntry(entry: WaitlistEntry, now = new Date()): WaitlistEntry {
   if (entry.status !== 'waiting') throw new Error('Only a waiting ticket can be cancelled.');
-  const createdAt = Date.parse(entry.createdAt);
-  if (!Number.isFinite(createdAt) || now.getTime() < createdAt) throw new Error('Cancellation time cannot be earlier than ticket creation.');
   return { ...entry, status: 'cancelled', cancelledAt: now.toISOString() };
 }

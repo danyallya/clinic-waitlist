@@ -13,4 +13,5 @@
 - Store only a random local ticket code, creation/cancellation timestamps, optional preferred date and a consent attestation. Do not enter names, contact details, health reasons or other identifiers.
 - Consent is a user statement; the app cannot verify the patient or consent. The prototype sends no notifications and does not contact or change a clinic appointment.
 - Tickets are stored only in browser-local IndexedDB and are not encrypted, backed up, access-controlled or synchronized. Cancelled tickets are retained for up to 90 days unless deleted sooner. This state is not a tamper-resistant audit log.
+- Timestamps use the device clock and can be inaccurate or move backward; they are not reliable audit evidence. A clock change does not prevent cancelling a local ticket.
 - Do not use this prototype for real patient information or clinic operations.
