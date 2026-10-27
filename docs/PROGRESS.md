@@ -23,7 +23,7 @@ Docker service com.docker.service is stopped; Start-Service cannot open it with 
 
 **Done:** Added a typed pseudonymous local ticket, preferred-date and consent validation, review-before-save, Dexie draft/entry persistence, local waiting/cancelled lifecycle, safe cancellation confirmation, deletion of cancelled tickets, expiry cleanup and explicit empty/error states. No names, contact details or health reasons are collected; no clinic or notification is contacted.
 
-**Verification:** Install, audit, verify, browser and Docker results are recorded in `docs/days/day-001.md`. GitHub feature-PR checks and final-HEAD self-review are pending publication.
+**Verification:** Install, audit, verify, browser and Docker results are recorded in `docs/days/day-001.md`. PR #7 is open against preparation PR #6; final-HEAD GitHub checks and the self-review permalink are recorded in the central day ledger.
 
 **Limitations:** No identity or consent verification, access control, encryption, backup, remote sync, clinic connection, appointment booking or notification delivery. A ticket code is not an identity or authorization token.
 
