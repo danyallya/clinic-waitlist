@@ -4,8 +4,8 @@ Prioritize user risk and evidence over polish. Estimates are focused engineering
 
 ## P0 — safe foundation
 
-- [ ] WAITLIST-001 — Build a queue entry with timestamp, status and safe cancellation.
-- [ ] WAITLIST-002 — Validate appointments and add empty/error/deletion states.
+- [x] WAITLIST-001 — Build a queue entry with timestamp, status and safe cancellation.
+- [x] WAITLIST-002 — Validate appointments and add empty/error/deletion states.
 - [ ] WAITLIST-003 — Add PostgreSQL migrations and repository tests.
 - [ ] WAITLIST-004 — Specify offline conflicts, retry, duplicate-submit and recovery.
 
