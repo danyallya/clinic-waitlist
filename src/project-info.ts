@@ -1,0 +1,1 @@
+export const projectInfo = { slug:"clinic-waitlist", title:"Clinic Waitlist", summary:"A clinic queue that estimates waits and fills canceled appointments with minimal patient data.", scope:"waitlist", locale:"en", direction:"ltr", firstTask:"Build a queue entry with timestamp, status and safe cancellation.", entity:"appointments" } as const;
