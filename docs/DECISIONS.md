@@ -11,3 +11,7 @@ The service worker stores public shell only. Records need an explicit local sche
 ## 0003 — Verify provider terms before integration
 
 External sources require verified official terms, attribution, server-side credentials and visible source timestamps.
+
+## 0004 — Keep waitlist tickets pseudonymous and local
+
+The first queue workflow stores a random ticket code and scheduling metadata only. It collects no patient name, contact details or health reason. Consent is a user attestation, and notifications stay disabled until the clinic workflow and patient consent are reviewed.

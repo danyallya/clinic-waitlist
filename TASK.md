@@ -1,21 +1,26 @@
 # Active task
 
-**ID:** WAITLIST-001  
-**Title:** Build a queue entry with timestamp, status and safe cancellation.
+**ID:** WAITLIST-003
+**Title:** Add PostgreSQL migrations and repository tests.
 
 ## Context
 
-The technical shell exists; the product workflow does not. Build the first safe, end-to-end domain slice for Clinic Waitlist.
+The first queue slice is a pseudonymous browser-local prototype. Define server persistence without implying clinic integration, identity verification or notification consent.
 
 ## Acceptance criteria
 
-- Type the appointments domain record, validation rules and lifecycle.
-- Add a create/review flow that works without a server round-trip.
-- Persist a draft with Dexie and show saved, unsaved and sync state truthfully.
-- Test valid/invalid input, date/order boundaries and serialization.
-- Document retention, deletion and limitations of the offline slice.
-- Respect this guardrail: Keep health data out of the queue; confirm clinic flow and patient consent before notifications.
+- Add a versioned PostgreSQL schema for local ticket fields and cancellation state.
+- Add repository operations and integration tests against a disposable database.
+- Preserve the non-clinical, minimal-data scope and keep external notifications out of this task.
+- Document migration, backup, deletion and test-database handling.
 
 ## Status
 
-Not started. Use queue/001-waitlist. After acceptance passes, update progress and set the next task.
+Not started. Use `queue/waitlist-003-postgres-repository` after WAITLIST-001/002 is reviewed and merged.
+
+## Completed on the day-1 branch
+
+- WAITLIST-001 — Build a queue entry with timestamp, status and safe cancellation.
+- WAITLIST-002 — Validate appointments and add empty, error and deletion states.
+
+Evidence: `docs/days/day-001.md`. Both tasks are complete locally, pending PR review and merge.

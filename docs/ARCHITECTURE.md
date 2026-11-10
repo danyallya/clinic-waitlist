@@ -8,4 +8,4 @@
 - External providers use server-side adapters and environment-only secrets.
 - Docker multi-stage build; isolated web/database services per project.
 
-First product record: appointments. Implement local flow, PostgreSQL mapping and sync policy in one vertical slice.
+First product slice: pseudonymous waitlist tickets stored in Dexie. No names, contact details, health reasons, clinic integration or notifications are included. PostgreSQL mapping and a sync policy remain future work.
